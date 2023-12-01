@@ -23,12 +23,14 @@ const part1 = (rawInput) => {
 
   for (let i = 0; i < array.length; i++) {
     let rowNumber = [];
+
     for (let j = 0; j < array[i].length; j++) {
       if (isDigit(array[i][j])) {
         rowNumber.push(parseInt(array[i][j]));
         break;
       }
     }
+
     for (let j = array[i].length - 1; j >= 0; j--) {
       if (isDigit(array[i][j])) {
         rowNumber.push(parseInt(array[i][j]));
