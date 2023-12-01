@@ -1,86 +1,55 @@
 import run from "aocrunner";
 
 const parseInput = (rawInput) => {
-  rawInput = rawInput.replace(/one/g, 'one1one');
-  rawInput = rawInput.replace(/two/g, 'two2two');
-  rawInput = rawInput.replace(/three/g, 'three3three');
-  rawInput = rawInput.replace(/four/g, 'four4four');
-  rawInput = rawInput.replace(/five/g, 'five5five');
-  rawInput = rawInput.replace(/six/g, 'six6six');
-  rawInput = rawInput.replace(/seven/g, 'seven7seven');
-  rawInput = rawInput.replace(/eight/g, 'eight8');
-  rawInput = rawInput.replace(/nine/g, 'nine9nine');
+  rawInput = rawInput.replace(/one/g, "one1one");
+  rawInput = rawInput.replace(/two/g, "two2two");
+  rawInput = rawInput.replace(/three/g, "three3three");
+  rawInput = rawInput.replace(/four/g, "four4four");
+  rawInput = rawInput.replace(/five/g, "five5five");
+  rawInput = rawInput.replace(/six/g, "six6six");
+  rawInput = rawInput.replace(/seven/g, "seven7seven");
+  rawInput = rawInput.replace(/eight/g, "eight8eight");
+  rawInput = rawInput.replace(/nine/g, "nine9nine");
 
   return rawInput;
 };
 
 const part1 = (rawInput) => {
   const input = rawInput;
-  const lines = input.trim().split('\n');
-  const array = lines.map(line => line.split(''));
-  const resultArray = [];
-  for(let i = 0; i < array.length; i++) {
-    const row = array[i];
-    const rowNumber = [];
-    for(let j = 0; j < row.length; j++) {
-      if(isDigit(row[j])) {
-        rowNumber.push(parseInt(row[j]));
-        break;
-      }
-    }
-    for(let j = row.length - 1; j >= 0; j--) {
-      if(isDigit(row[j])) {
-        rowNumber.push(parseInt(row[j]));
-        break;
-      }
-    }
-    const resultString = rowNumber.join('');
-    resultArray.push(parseInt(resultString));
-  }
+  const lines = input.trim().split("\n");
+  const array = lines.map((line) => line.split(""));
 
   let result = 0;
-  for(let resultRow of resultArray) {
-    result += resultRow;
+
+  for (let i = 0; i < array.length; i++) {
+    let rowNumber = [];
+    for (let j = 0; j < array[i].length; j++) {
+      if (isDigit(array[i][j])) {
+        rowNumber.push(parseInt(array[i][j]));
+        break;
+      }
+    }
+    for (let j = array[i].length - 1; j >= 0; j--) {
+      if (isDigit(array[i][j])) {
+        rowNumber.push(parseInt(array[i][j]));
+        break;
+      }
+    }
+
+    result += parseInt(rowNumber.join(""));
   }
 
   return result;
 };
 
 const part2 = (rawInput) => {
-  const input = parseInput(rawInput);
-  const lines = input.trim().split('\n');
-  const array = lines.map(line => line.split(''));
-  const resultArray = [];
-  for(let i = 0; i < array.length; i++) {
-    const row = array[i];
-    const rowNumber = [];
-    for(let j = 0; j < row.length; j++) {
-      if(isDigit(row[j])) {
-        rowNumber.push(parseInt(row[j]));
-        break;
-      }
-    }
-    for(let j = row.length - 1; j >= 0; j--) {
-      if(isDigit(row[j])) {
-        rowNumber.push(parseInt(row[j]));
-        break;
-      }
-    }
-    const resultString = rowNumber.join('');
-    resultArray.push(parseInt(resultString));
-  }
-
-  let result = 0;
-  for(let resultRow of resultArray) {
-    result += resultRow;
-  }
-
-  return result;
+  return part1(parseInput(rawInput));
 };
 
+// ASCII range for digits
 function isDigit(char) {
   const charCode = char.charCodeAt(0);
-  return charCode >= 48 && charCode <= 57; // ASCII range for digits
+  return charCode >= 48 && charCode <= 57;
 }
 
 run({
