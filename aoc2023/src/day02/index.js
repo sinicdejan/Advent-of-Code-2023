@@ -26,9 +26,7 @@ const part1 = (rawInput) => {
           break;
         }
       }
-      if (!validGame) {
-        break;
-      }
+      if (!validGame) break;
     }
     if (validGame) result += gameNumber;
   }
@@ -95,5 +93,5 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`,
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 });
