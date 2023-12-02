@@ -33,8 +33,6 @@ const part1 = (rawInput) => {
     if (validGame) result += gameNumber;
   }
 
-  console.log("RESULT: " + result);
-
   return result;
 };
 
