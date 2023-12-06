@@ -243,8 +243,8 @@ Both parts: -
 ```
 
 ```
-Total stars: 8/50
-Total time: 947.854ms
+Total stars: 12/50
+Total time: 40683.208ms
 ```
 
 <!--/RESULTS-->
