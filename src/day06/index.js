@@ -31,8 +31,8 @@ const part2 = (rawInput) => {
 
   let wins = 0;
 
-  for(let waitingTime = 0; waitingTime < times; waitingTime++) {
-    if(((times - waitingTime) * waitingTime) > distances) {
+  for(let i = 0; i < times; i++) {
+    if(((times - i) * i) > distances) {
       wins++;
     }
   }
