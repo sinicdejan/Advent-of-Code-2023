@@ -33,7 +33,8 @@ const part2 = (rawInput) => {
 
   for(let i = 0; i < times; i++) {
     if(((times - i) * i) > distances) {
-      result++;
+      result = times - (2 * i) + 1;
+      break;
     }
   }
 
