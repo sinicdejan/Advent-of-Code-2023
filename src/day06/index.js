@@ -29,15 +29,15 @@ const part2 = (rawInput) => {
   let times = parseInt(input.split('\n')[0].split(':')[1].replace(/\s/g,''));
   let distances = parseInt(input.split('\n')[1].split(':')[1].replace(/\s/g,''));
 
-  let wins = 0;
+  let result = 0;
 
   for(let i = 0; i < times; i++) {
     if(((times - i) * i) > distances) {
-      wins++;
+      result++;
     }
   }
 
-  return wins;
+  return result;
 };
 
 run({
