@@ -43,9 +43,9 @@ const part1 = (rawInput) => {
     let handValue = '';
 
     if(cardCount.length == 1) {
-      handValue += cardMap.get(cardCount[0][0]);
+      handValue += '1';
     } else {
-      handValue += '00';
+      handValue += '0';
     }
 
     if(cardCount.length == 2) {
@@ -154,9 +154,9 @@ const part2 = (rawInput) => {
 
     // check for five of a kind
     if(cardCountModified.length == 1) {
-      handValue += '01';
+      handValue += '1';
     } else {
-      handValue += '00';
+      handValue += '0';
     }
 
     if(cardCountModified.length == 2) {
